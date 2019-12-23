@@ -1,0 +1,27 @@
+jobs:
+  build:
+    working_directory: ~/CircleCIGithubCypress
+    docker:
+    - image: cypress/base:10
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+        - v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+        - v2-deps-{{ .Branch }}-
+        - v2-deps-
+    - run: npm ci
+    - save_cache:
+        key: v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+        paths:
+        - ~/.npm
+        - ~/.cache
+    - run: export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`
+    - run:
+        name: Run Cypress/Applitools tests
+        command: npm run cy:run -- --spec "cypress/integration/examples/actions.spec.js"
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
