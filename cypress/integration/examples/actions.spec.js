@@ -10,7 +10,7 @@ describe('Hello world', () => {
   });
 
   it('Demo Applitools Standard', () => {
-    cy.visit('https://demo.applitools.com/');
+    cy.visit('https://applitools.com/helloworld?diff2');
     cy.eyesCheckWindow('Main Page');
     // cy.get('button').click();
     // cy.eyesCheckWindow('Click!');
