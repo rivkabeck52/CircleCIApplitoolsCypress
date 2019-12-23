@@ -15,8 +15,11 @@ jobs:
         paths:
         - ~/.npm
         - ~/.cache
-    - run: export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`
     - run: npm ci
+    - run:
+        command: |
+          export APPLITOOLS_BATCH_ID=${CIRCLE_SHA1}
+          echo $APPLITOOLS_BATCH_ID
     - run:
         name: Run Cypress/Applitools tests
         command: npm run cy:run -- --spec "cypress/integration/examples/actions.spec.js"
