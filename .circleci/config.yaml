@@ -1,6 +1,6 @@
 jobs:
   build:
-    working_directory: ~/CircleCIGithubCypress
+    working_directory: ~/CircleCIApplitoolsCypress
     docker:
     - image: cypress/base:10
     steps:
