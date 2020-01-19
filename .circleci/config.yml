@@ -24,6 +24,12 @@ jobs:
     # - run:
     #     name: Run Cypress/Applitools tests
     #     command: npm run cy:run -- --spec "cypress/integration/examples/actions.spec.js"
+
+    - run: {}
+      command: |
+        export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`
+        echo $APPLITOOLS_BATCH_ID
+        npm run cy:run -- --spec "cypress/integration/examples/actions.spec.js"
 workflows:
   version: 2
   workflow:
