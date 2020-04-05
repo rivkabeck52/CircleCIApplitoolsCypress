@@ -9,9 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^3.8.0"
-  },
-  "devDependencies": {
-    "@applitools/eyes-cypress": "^3.9.2"
+    "@applitools/eyes-cypress": "^3.9.21",
+    "bufferutil": "^4.0.1",
+    "cypress": "^3.8.0",
+    "utf-8-validate": "^5.0.2"
   }
 }
