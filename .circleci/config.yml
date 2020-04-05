@@ -21,4 +21,4 @@ jobs:
           command: |
             export APPLITOOLS_BATCH_ID=${CIRCLE_SHA1}
             echo $APPLITOOLS_BATCH_ID
-            npm run cy:run -- --spec "cypress/integration/examples/actions.spec.js"
+            ./node_modules/cypress/bin/cypress run --spec "cypress/integration/examples/actions.spec.js"
