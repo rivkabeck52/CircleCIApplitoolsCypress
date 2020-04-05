@@ -1,7 +1,6 @@
 module.exports = {
     appName: 'Circle CI',
     showLogs: true,
-    batchName: 'Circle CI batch',
+    batchName: process.env.APPLITOOLS_BATCH_NAME,
     batchId: process.env.APPLITOOLS_BATCH_ID
-    // all other configuration variables apply
   }
